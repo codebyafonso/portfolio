@@ -14,20 +14,20 @@ export function Sidebar() {
   return (
     <>
       {/* Mobile top bar */}
-      <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gh-bg border-b border-gh-border px-4 py-3 flex items-center justify-between">
+      <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gh-bg/95 backdrop-blur border-b border-gh-border px-4 h-14 flex items-center justify-between">
         <NavLink to="/" className="text-gh-blue text-sm font-mono">~/afonso</NavLink>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-gh-muted hover:text-gh-text transition-colors"
+          className="text-gh-muted hover:text-gh-text transition-colors p-2 -mr-2"
           aria-label="Toggle menu"
         >
-          <span className="text-lg">{menuOpen ? '✕' : '☰'}</span>
+          <span className="text-xl">{menuOpen ? '✕' : '☰'}</span>
         </button>
       </header>
 
       {/* Mobile dropdown nav */}
       {menuOpen && (
-        <nav className="md:hidden fixed top-12 left-0 right-0 z-40 bg-gh-surface border-b border-gh-border px-4 py-3 flex flex-col gap-3">
+        <nav className="md:hidden fixed top-14 left-0 right-0 z-40 bg-gh-surface border-b border-gh-border px-4 py-2 flex flex-col">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -35,7 +35,9 @@ export function Sidebar() {
               end={link.to === '/'}
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
-                `text-sm transition-colors ${isActive ? 'text-gh-blue' : 'text-gh-muted hover:text-gh-blue'}`
+                `py-3 text-sm transition-colors border-b border-gh-border last:border-0 ${
+                  isActive ? 'text-gh-blue' : 'text-gh-muted'
+                }`
               }
             >
               ~/{link.label}

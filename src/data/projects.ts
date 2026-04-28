@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     slug: 'motosync',
     title: 'motosync/',
-    description: 'Rastreador de manutenção de motos com REST API completa, auth JWT e testes integrados',
+    description: 'Motorcycle maintenance tracker. REST API com Node.js, Express, TypeScript, MongoDB e frontend React mobile-first.',
     stack: ['TypeScript', 'Node.js', 'MongoDB'],
     language: 'typescript',
     githubUrl: 'https://github.com/codebyafonso/motosync',
@@ -21,7 +21,7 @@ export const projects: Project[] = [
   {
     slug: 'pppoeye',
     title: 'pppoeye/',
-    description: 'Dashboard de monitoramento PPPoE em tempo real para MikroTik com alertas de queda em massa',
+    description: 'Dashboard de monitoramento PPPoE em tempo real para MikroTik — clientes online/offline, alertas de queda, histórico e autenticação.',
     stack: ['Python', 'MikroTik', 'WebSockets'],
     language: 'python',
     githubUrl: 'https://github.com/codebyafonso/PPPoEye---AfnProject',
@@ -29,7 +29,7 @@ export const projects: Project[] = [
   {
     slug: 'supportflow',
     title: 'SupportFlow-N1/',
-    description: 'Sistema de suporte técnico N1 com gestão de chamados e atendimento',
+    description: 'Sistema de suporte técnico N1 — gestão de chamados, atendimento e controle de tickets.',
     stack: ['JavaScript', 'Node.js'],
     language: 'javascript',
     githubUrl: 'https://github.com/codebyafonso/SupportFlow---N1',
@@ -37,7 +37,7 @@ export const projects: Project[] = [
   {
     slug: 'tdsbreak',
     title: 'tdsbreak/',
-    description: 'Plataforma TypeScript em desenvolvimento ativo',
+    description: 'Plataforma TypeScript — sistema de gestão e automação.',
     stack: ['TypeScript'],
     language: 'typescript',
     githubUrl: 'https://github.com/codebyafonso/tdsbreak',
@@ -45,7 +45,7 @@ export const projects: Project[] = [
   {
     slug: 'watchdog',
     title: 'Watchdog/',
-    description: 'Dashboard de monitoramento de servidor Linux com métricas em tempo real e proteção contra brute-force',
+    description: 'Self-hosted Linux server monitoring dashboard com métricas em tempo real, logs e proteção contra brute-force.',
     stack: ['Python', 'HTML'],
     language: 'python',
     githubUrl: 'https://github.com/codebyafonso/Watchdog',

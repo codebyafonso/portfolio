@@ -40,19 +40,7 @@ export function ContactPage() {
         ))}
       </div>
 
-      {/* Availability block */}
-      <div className="border border-gh-border p-4 max-w-lg">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="w-2 h-2 rounded-full bg-gh-green animate-pulse" />
-          <span className="text-gh-green text-xs">disponível para projetos</span>
-        </div>
-        <p className="text-gh-muted text-xs leading-relaxed">
-          Aberto a freelance, colaborações e oportunidades full-time.<br />
-          Baseado em Recife, PE — trabalho remoto.
-        </p>
-      </div>
-
-      <div className="flex items-center gap-2 mt-8">
+      <div className="flex items-center gap-2 mt-4">
         <span className="text-gh-green text-xs">❯</span>
         <span className="text-gh-green text-sm animate-blink">▍</span>
       </div>

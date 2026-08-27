@@ -8,9 +8,9 @@ import { ContactPage } from './pages/ContactPage'
 export default function App() {
   return (
     <BrowserRouter basename="/portfolio">
-      <div className="min-h-screen bg-gh-bg font-mono">
+      <div className="min-h-screen overflow-x-hidden bg-gh-bg font-mono">
         <Sidebar />
-        <main className="md:ml-[220px] pt-16 md:pt-0 px-5 sm:px-8 md:px-12 py-8 md:py-12 w-full max-w-3xl">
+        <main className="md:ml-[220px] pt-16 md:pt-0 px-5 sm:px-8 md:px-12 py-8 md:py-12 w-full max-w-[1600px] mx-auto">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/skills" element={<SkillsPage />} />

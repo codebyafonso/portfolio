@@ -1,17 +1,9 @@
 import { TerminalPrompt } from '../components/TerminalPrompt'
-
-const skillGroups = [
-  { label: 'Languages', color: 'text-gh-blue', border: 'border-gh-blue', skills: ['TypeScript', 'Python', 'JavaScript'] },
-  { label: 'Runtime', color: 'text-gh-green', border: 'border-gh-green', skills: ['Node.js', 'Express', 'NestJS'] },
-  { label: 'Database', color: 'text-gh-yellow', border: 'border-gh-yellow', skills: ['MongoDB', 'PostgreSQL'] },
-  { label: 'Frontend', color: 'text-gh-purple', border: 'border-gh-purple', skills: ['React', 'Tailwind CSS'] },
-  { label: 'Infra', color: 'text-gh-red', border: 'border-gh-red', skills: ['Docker', 'Linux', 'Nginx'] },
-  { label: 'Tools', color: 'text-gh-muted', border: 'border-gh-border2', skills: ['Git', 'REST APIs', 'WebSockets'] },
-]
+import { skillGroups } from '../data/skills'
 
 export function SkillsPage() {
   return (
-    <div className="page-enter py-4">
+    <div className="page-enter py-4 max-w-3xl">
       <TerminalPrompt command="cat skills.txt" />
       <div className="space-y-6">
         {skillGroups.map((group) => (

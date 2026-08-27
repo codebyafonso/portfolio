@@ -13,6 +13,7 @@
   --color-gh-yellow: #e3b341;
   --color-gh-red: #f78166;
   --color-gh-purple: #d2a8ff;
+  --color-gh-cyan: #56d4dd;
   --font-mono: "JetBrains Mono", monospace;
   --animate-blink: blink 1s step-end infinite;
   --animate-page-in: page-in 0.25s ease forwards;
@@ -105,4 +106,13 @@ body::before {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Faixa deslizante sem barra de rolagem visível (filtros no mobile). */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

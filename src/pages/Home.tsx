@@ -8,7 +8,7 @@ const quickLinks = [
 
 export function Home() {
   return (
-    <div className="page-enter min-h-[calc(100vh-120px)] md:min-h-[calc(100vh-80px)] flex flex-col justify-center py-8">
+    <div className="page-enter max-w-3xl min-h-[calc(100vh-120px)] md:min-h-[calc(100vh-80px)] flex flex-col justify-center py-8">
 
       {/* Boot header */}
       <div className="text-gh-muted text-xs mb-6 space-y-0.5">

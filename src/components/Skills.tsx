@@ -1,13 +1,5 @@
 import { TerminalPrompt } from './TerminalPrompt'
-
-const skillGroups = [
-  { label: 'Languages', skills: ['TypeScript', 'Python', 'JavaScript'] },
-  { label: 'Runtime', skills: ['Node.js', 'Express', 'NestJS'] },
-  { label: 'Database', skills: ['MongoDB', 'PostgreSQL'] },
-  { label: 'Frontend', skills: ['React', 'Tailwind CSS'] },
-  { label: 'Infra', skills: ['Docker', 'Linux', 'Nginx'] },
-  { label: 'Tools', skills: ['Git', 'REST APIs', 'WebSockets'] },
-]
+import { skillGroups } from '../data/skills'
 
 export function Skills() {
   return (

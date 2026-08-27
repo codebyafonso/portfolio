@@ -17,7 +17,7 @@ const contacts = [
 
 export function ContactPage() {
   return (
-    <div className="page-enter py-4">
+    <div className="page-enter py-4 max-w-3xl">
       <TerminalPrompt command="echo $CONTACT" />
 
       <div className="space-y-3 max-w-lg mb-10">

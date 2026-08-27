@@ -1,64 +1,107 @@
+import { useState } from 'react'
 import { TerminalPrompt } from '../components/TerminalPrompt'
-import { projects, type Language } from '../data/projects'
+import { ProjectCard } from '../components/ProjectCard'
+import {
+  projects,
+  categoryLabels,
+  categoryShort,
+  categoryOrder,
+  type Category,
+} from '../data/projects'
 
-const accentColor: Record<Language, string> = {
-  typescript: 'border-l-gh-blue',
-  python: 'border-l-gh-green',
-  javascript: 'border-l-gh-yellow',
-}
-
-const badgeColor: Record<Language, string> = {
-  typescript: 'text-gh-blue bg-blue-950/30 border-gh-blue/30',
-  python: 'text-gh-green bg-green-950/30 border-gh-green/30',
-  javascript: 'text-gh-yellow bg-yellow-950/30 border-gh-yellow/30',
-}
-
-const dotColor: Record<Language, string> = {
-  typescript: 'bg-gh-blue',
-  python: 'bg-gh-green',
-  javascript: 'bg-gh-yellow',
-}
+type Filter = Category | 'todos'
 
 export function ProjectsPage() {
+  const [filter, setFilter] = useState<Filter>('todos')
+
+  // categorias que realmente têm projeto — filtros e seções usam a mesma fonte,
+  // senão um botão com contador 0 levaria a uma tela em branco
+  const existingCategories = categoryOrder.filter((c) =>
+    projects.some((p) => p.category === c),
+  )
+  const shownCategories =
+    filter === 'todos' ? existingCategories : existingCategories.filter((c) => c === filter)
+
+  const filters: Filter[] = ['todos', ...existingCategories]
+  const shownCount = projects.filter(
+    (p) => filter === 'todos' || p.category === filter,
+  ).length
+
   return (
     <div className="page-enter py-4">
-      <TerminalPrompt command="ls projects/" />
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {projects.map((project) => (
-          <a
-            key={project.slug}
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`project-card block bg-gh-surface border border-gh-border border-l-2 ${accentColor[project.language]} p-4 transition-all group`}
-          >
-            <div className="flex items-start justify-between mb-2">
-              <div className="flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full shrink-0 ${dotColor[project.language]}`} />
-                <span className="text-gh-text text-sm font-bold group-hover:text-gh-blue transition-colors">
-                  {project.title}
-                </span>
-              </div>
-              <span className="text-gh-muted text-xs opacity-0 group-hover:opacity-100 transition-opacity shrink-0 ml-2">
-                ↗
+      <TerminalPrompt
+        command={filter === 'todos' ? 'ls projects/' : `ls projects/${filter}`}
+      />
+
+      {/*
+        No mobile os filtros viram uma faixa deslizante numa linha só — empilhados,
+        ocupavam a tela inteira antes do primeiro projeto. A partir de sm voltam a
+        quebrar em linhas normalmente.
+      */}
+      <div
+        role="group"
+        aria-label="Filtrar projetos por categoria"
+        className="no-scrollbar mb-6 flex max-w-full gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible sm:pb-0"
+      >
+        {filters.map((f) => {
+          const count =
+            f === 'todos'
+              ? projects.length
+              : projects.filter((p) => p.category === f).length
+          const active = filter === f
+          return (
+            <button
+              key={f}
+              type="button"
+              onClick={() => setFilter(f)}
+              aria-pressed={active}
+              aria-label={
+                f === 'todos'
+                  ? `Todos os ${count} projetos`
+                  : `${categoryLabels[f]}, ${count} projetos`
+              }
+              className={`shrink-0 whitespace-nowrap border px-3 py-1.5 text-xs transition-colors ${
+                active
+                  ? 'border-gh-blue text-gh-blue bg-blue-950/30'
+                  : 'border-gh-border text-gh-muted hover:border-gh-border2 hover:text-gh-text'
+              }`}
+            >
+              {f === 'todos' ? (
+                'todos'
+              ) : (
+                <>
+                  <span className="sm:hidden">{categoryShort[f]}</span>
+                  <span className="hidden sm:inline">{categoryLabels[f]}</span>
+                </>
+              )}{' '}
+              <span className="opacity-60" aria-hidden="true">
+                {count}
               </span>
-            </div>
-            <p className="text-gh-muted text-xs leading-relaxed mb-3 pl-4">
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-1.5 pl-4">
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className={`text-xs px-2 py-0.5 border ${badgeColor[project.language]}`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </a>
-        ))}
+            </button>
+          )
+        })}
       </div>
+
+      {/* troca de filtro é silenciosa para leitor de tela sem isto */}
+      <p className="sr-only" aria-live="polite">
+        {shownCount} projetos em{' '}
+        {filter === 'todos' ? 'todas as categorias' : categoryLabels[filter]}
+      </p>
+
+      {shownCategories.map((category) => (
+        <section key={category} className="mb-8">
+          <h2 className="text-gh-muted text-xs uppercase tracking-widest mb-3">
+            {categoryLabels[category]}
+          </h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+            {projects
+              .filter((p) => p.category === category)
+              .map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+          </div>
+        </section>
+      ))}
     </div>
   )
 }

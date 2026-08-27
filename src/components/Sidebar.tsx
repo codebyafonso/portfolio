@@ -48,7 +48,7 @@ export function Sidebar() {
 
       {/* Desktop sidebar */}
       <aside className="hidden md:flex flex-col fixed top-0 left-0 h-screen w-[220px] bg-gh-bg border-r border-gh-border px-6 py-8 z-40">
-        <div className="text-gh-muted text-xs mb-1">[codebyafonso@portfolio ~]$</div>
+        <div className="text-gh-muted text-xs mb-1 truncate">[afonso@portfolio ~]$</div>
         <NavLink to="/" className="text-gh-text font-bold text-base leading-tight mb-1 hover:text-gh-blue transition-colors">
           Afonso Estevão
         </NavLink>

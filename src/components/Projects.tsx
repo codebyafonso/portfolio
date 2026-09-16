@@ -6,7 +6,7 @@ import { featuredProjects, projects } from '../data/projects'
 export function Projects() {
   return (
     <section id="projetos" className="mb-16">
-      <TerminalPrompt command="ls projects/ | head" />
+      <TerminalPrompt command="ls projects/ --destaques" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {featuredProjects.map((project) => (
           <ProjectCard key={project.slug} project={project} />

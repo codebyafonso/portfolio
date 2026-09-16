@@ -1,4 +1,5 @@
 import { TerminalPrompt } from '../components/TerminalPrompt'
+import { linkedinUrl, resumePdfUrl } from '../data/resume'
 
 const contacts = [
   {
@@ -6,6 +7,12 @@ const contacts = [
     value: 'github.com/codebyafonso',
     href: 'https://github.com/codebyafonso',
     note: 'código fonte e projetos',
+  },
+  {
+    key: 'linkedin',
+    value: 'linkedin.com/in/afonsopy',
+    href: linkedinUrl,
+    note: 'experiência e recomendações',
   },
   {
     key: 'email',
@@ -39,6 +46,14 @@ export function ContactPage() {
           </a>
         ))}
       </div>
+
+      <a
+        href={resumePdfUrl}
+        download
+        className="inline-flex items-center gap-2 border border-gh-blue text-gh-blue text-xs px-4 py-2 mb-10 hover:bg-blue-950/30 transition-colors"
+      >
+        ↓ baixar currículo (PDF)
+      </a>
 
       <div className="flex items-center gap-2 mt-4">
         <span className="text-gh-green text-xs">❯</span>

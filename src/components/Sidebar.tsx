@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { linkedinUrl, role } from '../data/resume'
 
 const navLinks = [
   { label: 'home', to: '/' },
+  { label: 'experiencia', to: '/experiencia' },
   { label: 'skills', to: '/skills' },
   { label: 'projetos', to: '/projects' },
   { label: 'contato', to: '/contact' },
@@ -52,7 +54,7 @@ export function Sidebar() {
         <NavLink to="/" className="text-gh-text font-bold text-base leading-tight mb-1 hover:text-gh-blue transition-colors">
           Afonso Estevão
         </NavLink>
-        <div className="text-gh-blue text-xs mb-4">Developer</div>
+        <div className="text-gh-blue text-xs mb-4">{role}</div>
         <div className="border-t border-gh-border mb-6" />
         <nav className="flex flex-col gap-3 mb-auto">
           {navLinks.map((link) => (
@@ -80,6 +82,14 @@ export function Sidebar() {
           className="text-gh-muted hover:text-gh-blue text-xs transition-colors mt-1"
         >
           github.com/codebyafonso
+        </a>
+        <a
+          href={linkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gh-muted hover:text-gh-blue text-xs transition-colors mt-1"
+        >
+          linkedin.com/in/afonsopy
         </a>
         <div className="flex items-center gap-2 mt-4">
           <span className="w-2 h-2 rounded-full bg-gh-green animate-pulse" />

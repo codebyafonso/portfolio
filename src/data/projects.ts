@@ -57,7 +57,6 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'React', 'PDF'],
     language: 'typescript',
     category: 'produtos',
-    featured: true,
     liveUrl: 'https://oush3d.vercel.app',
   },
   {
@@ -68,17 +67,38 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'React'],
     language: 'typescript',
     category: 'produtos',
-    featured: true,
     liveUrl: 'https://optic-plan-board.vercel.app',
+  },
+  {
+    slug: 'tds-connect',
+    title: 'tds-connect/',
+    description:
+      'Plataforma interna da TDS Company para gestão de pessoas — férias, presença e feriados, com regras de negócio, autenticação, auditoria e integração de dados.',
+    stack: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+    language: 'typescript',
+    category: 'produtos',
+    featured: true,
   },
   {
     slug: 'supportflow',
     title: 'SupportFlow-N1/',
     description:
-      'Sistema de suporte técnico N1 — gestão de chamados, fila de atendimento e controle de tickets.',
-    stack: ['JavaScript', 'Node.js'],
+      'Middleware que integra Jira e Google Chat — espelha chamados em threads, oferece Chat App interativo, painéis operacionais, acompanhamento de SLA, alertas e recursos de IA.',
+    stack: ['Node.js', 'TypeScript', 'Express', 'MongoDB', 'JWT', 'Jira', 'Google Chat'],
     language: 'javascript',
     category: 'produtos',
+    featured: true,
+  },
+  {
+    slug: 'smartorder',
+    title: 'SmartOrder/',
+    description:
+      'Sistema de pedidos para restaurante com chatbot de Inteligência Artificial e atendimento integrado via WhatsApp e web.',
+    stack: ['NestJS', 'Prisma', 'PostgreSQL', 'Docker', 'TypeScript', 'Vercel'],
+    language: 'typescript',
+    category: 'produtos',
+    featured: true,
+    liveUrl: 'https://smartorder-front.vercel.app',
   },
   {
     slug: 'surfpe',
@@ -112,8 +132,8 @@ export const projects: Project[] = [
     slug: 'pppoeye',
     title: 'pppoeye/',
     description:
-      'Dashboard de monitoramento de sessões PPPoE em tempo real — clientes online/offline, alertas de queda, histórico e autenticação.',
-    stack: ['Python', 'WebSockets', 'Dashboards'],
+      'Painel web e aplicativo Android para monitoramento de conexões PPPoE em servidores MikroTik — clientes online/offline, histórico de quedas e alertas.',
+    stack: ['Python', 'Flask', 'MongoDB', 'Kotlin', 'Jetpack Compose', 'MikroTik RouterOS'],
     language: 'python',
     category: 'redes',
     featured: true,
@@ -144,7 +164,6 @@ export const projects: Project[] = [
     stack: ['Python', 'HTML', 'Shell'],
     language: 'python',
     category: 'redes',
-    featured: true,
     githubUrl: gh('Watchdog'),
   },
   {
@@ -225,7 +244,6 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'React', 'Vercel API'],
     language: 'typescript',
     category: 'ferramentas',
-    featured: true,
     githubUrl: gh('orbit'),
   },
   {
@@ -236,7 +254,6 @@ export const projects: Project[] = [
     stack: ['Python', 'Inno Setup'],
     language: 'python',
     category: 'ferramentas',
-    featured: true,
     githubUrl: gh('codeshot'),
   },
   {

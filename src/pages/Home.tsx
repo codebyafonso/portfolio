@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { Projects } from '../components/Projects'
+import { headline, resumePdfUrl, role, summary } from '../data/resume'
 
 const quickLinks = [
+  { cmd: 'cat experiencia.log', to: '/experiencia', label: 'ver experiência' },
   { cmd: 'cat skills.txt', to: '/skills', label: 'ver skills' },
   { cmd: 'ls projects/', to: '/projects', label: 'ver projetos' },
   { cmd: 'echo $CONTACT', to: '/contact', label: 'entrar em contato' },
@@ -8,7 +11,8 @@ const quickLinks = [
 
 export function Home() {
   return (
-    <div className="page-enter max-w-3xl min-h-[calc(100vh-120px)] md:min-h-[calc(100vh-80px)] flex flex-col justify-center py-8">
+    <div className="page-enter">
+    <div className="max-w-3xl flex flex-col py-8 md:pt-16 md:pb-12">
 
       {/* Boot header */}
       <div className="text-gh-muted text-xs mb-6 space-y-0.5">
@@ -26,22 +30,28 @@ export function Home() {
       <h1 className="text-gh-text text-2xl sm:text-3xl font-bold leading-tight mb-1">
         Afonso Estevão Luna
       </h1>
-      <div className="flex items-center gap-3 mb-6">
-        <span className="text-gh-blue text-xs">Developer</span>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-6">
+        <span className="text-gh-blue text-xs">{role}</span>
+        <span className="text-gh-border">·</span>
+        <span className="text-gh-text text-xs">{headline}</span>
         <span className="text-gh-border">·</span>
         <span className="text-gh-muted text-xs">Recife, PE</span>
       </div>
 
       {/* Bio block */}
-      <div className="bg-gh-surface border border-gh-border p-4 mb-8 max-w-lg">
+      <div className="bg-gh-surface border border-gh-border p-4 mb-8 max-w-xl">
         <div className="text-gh-muted text-xs mb-3"># about.txt</div>
         <p className="text-gh-text text-sm leading-relaxed">
           Building tools that solve real problems.
         </p>
-        <p className="text-gh-muted text-xs leading-relaxed mt-2">
-          Back-end por natureza. Automação por obsessão.<br />
-          Full-stack quando necessário.
-        </p>
+        <p className="text-gh-muted text-xs leading-relaxed mt-2">{summary}</p>
+        <a
+          href={resumePdfUrl}
+          download
+          className="inline-block mt-4 text-xs text-gh-blue hover:underline"
+        >
+          ↓ baixar currículo (PDF)
+        </a>
       </div>
 
       {/* Quick nav as terminal commands */}
@@ -69,6 +79,9 @@ export function Home() {
         <span className="text-gh-green text-xs">❯</span>
         <span className="text-gh-green text-sm animate-blink">▍</span>
       </div>
+    </div>
+
+    <Projects />
     </div>
   )
 }
